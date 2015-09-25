@@ -20,7 +20,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		newFixedThreadPool.submit(()->{System.out.println("start!");});
-		load("http://blog.csdn.net/hustpzb/article/details/8230454/");
+		load("http://c.hiphotos.baidu.com/baike/1/c0%3Dbaike80%2C5%2C5%2C80%2C26/sign=96677179d31b0ef478e5900cbcad3abf/08f790529822720e3e56dbad7acb0a46f31fabc8.jpg");
 		while (true) {
 			try {
 				Thread.sleep(1000);

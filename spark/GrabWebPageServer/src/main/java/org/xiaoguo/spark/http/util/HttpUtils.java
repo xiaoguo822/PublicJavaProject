@@ -11,9 +11,11 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 
 import org.jsoup.Jsoup;
+import org.xiaoguo.spark.http.grab.HttpHeader;
 import org.xiaoguo.spark.http.grab.HttpResponse;
 
 public class HttpUtils {
@@ -79,7 +81,7 @@ public class HttpUtils {
 			// "GB2312,utf-8;q=0.7,*;q=0.7");
 			con.setRequestProperty("accept", "*/*");
 			con.setRequestProperty("connection", "Keep-Alive");
-			con.setRequestProperty("Content-type", "texst/html;charset=UTF-8");
+			//con.setRequestProperty("Content-type", "texst/html;charset=UTF-8");
 			con.setRequestProperty("user-agent", "Opera/9.80 (Windows NT 6.1; U; zh-cn) Presto/2.10.229 Version/11.61");
 			con.setDoOutput(true);
 			con.setDoInput(true);
@@ -90,7 +92,11 @@ public class HttpUtils {
 
 			// dos.close();
 			res.stateCode = con.getResponseCode();
+			Map<String, List<String>> headerFields = con.getHeaderFields();
+			HttpHeader create = HttpHeader.create(headerFields);
+			System.out.println(headerFields);
 			if (res.stateCode == 200) {
+				
 				InputStream is = con.getInputStream();
 				DataInputStream dis = new DataInputStream(is);
 
