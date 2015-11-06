@@ -20,7 +20,7 @@ public class Http {
 	public Http(String url,HttpMethod method,HttpParameter param){
 		this.url=url;
 		this.method=method;
-		this.parameter=param;
+		this.parameter=param; 
 	}
 	
 
